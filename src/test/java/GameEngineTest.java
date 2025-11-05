@@ -65,6 +65,11 @@ public class GameEngineTest {
         assertEquals(1, engine.getMin());
         assertEquals(100, engine.getMax());
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> main
 
     @Test
 <<<<<<< HEAD
@@ -151,4 +156,8 @@ public class GameEngineTest {
         assertFalse(result.getHint().isEmpty());
 >>>>>>> 84823e4 (Add hint system to show proximity after 3 attempts)
     }
+<<<<<<< HEAD
+=======
+>>>>>>> 9b8715b (Add hint system to show proximity after 3 attempts)
+>>>>>>> main
 }
