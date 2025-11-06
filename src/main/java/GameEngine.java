@@ -4,26 +4,26 @@ public class GameEngine {
     private int target;
     private int attempts;
     private boolean gameWon;
-<<<<<<< HEAD
-=======
     private boolean userQuit;
     private boolean hintsEnabled;
->>>>>>> 9b8715b (Add hint system to show proximity after 3 attempts)
 
     public GameEngine(int min, int max) {
         this.min = min;
         this.max = max;
         this.attempts = 0;
         this.gameWon = false;
-<<<<<<< HEAD
-=======
         this.userQuit = false;
         this.hintsEnabled = true;
->>>>>>> 9b8715b (Add hint system to show proximity after 3 attempts)
         reset();
     }
 
     public GuessResult makeGuess(int guess) {
+        // Check if user wants to quit (negative number)
+        if (guess < 0) {
+            userQuit = true;
+            return new GuessResult(false, "Exiting game...", attempts);
+        }
+
         attempts++;
 
         if (guess == target) {
@@ -46,10 +46,15 @@ public class GameEngine {
         target = Utils.randomInt(min, max);
         attempts = 0;
         gameWon = false;
+        userQuit = false;
     }
 
     public boolean isGameWon() {
         return gameWon;
+    }
+
+    public boolean hasUserQuit() {
+        return userQuit;
     }
 
     public int getAttempts() {
